@@ -11,6 +11,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <argLine>-Duser.language=en</argLine>    <!-- dil ayarı türkçe için -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -40,7 +41,15 @@
             <version>2.14.1</version>
         </dependency>
 
-    </dependencies>
+
+        <!--//Random mail ve name için eklendi-->
+       <dependency>
+           <groupId>org.apache.poi</groupId>
+           <artifactId>poi</artifactId>
+           <version>4.1.0</version>
+       </dependency>
+
+   </dependencies>
 
 
 </project>
