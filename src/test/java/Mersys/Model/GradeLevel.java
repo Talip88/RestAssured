@@ -1,4 +1,4 @@
-package Mersys;
+package Mersys.Model;
 
 public class GradeLevel {
 
