@@ -1,3 +1,5 @@
+package POJO;
+
 import POJO.ToDo;
 import io.restassured.http.ContentType;
 import org.testng.Assert;
