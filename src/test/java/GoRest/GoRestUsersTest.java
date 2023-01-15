@@ -202,6 +202,7 @@ public class GoRestUsersTest {
     public void deleteUserById() {
 
         given()
+
                 .header("Authorization", "Bearer 46f9460f6cd9e573021594db5fd1713381fefed250aaab14594c9d5892963cfc")
                 .pathParam("userId", userID)
                 .log().uri()
