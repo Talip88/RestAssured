@@ -34,7 +34,7 @@ public class GoRestUsersTest {
     @BeforeClass
     void Setup() {
         baseURI = "https://gorest.co.in/public/v2/users"; // PROD
-        // baseURI="https://test.gorest.co.in/public/v2/users"; // TEST
+        //baseURI="https://test.gorest.co.in/public/v2/users"; // TEST
 
     }
 
@@ -56,8 +56,10 @@ public class GoRestUsersTest {
                         .header("Authorization", "Bearer 46f9460f6cd9e573021594db5fd1713381fefed250aaab14594c9d5892963cfc")
                         .contentType(ContentType.JSON)
                         .body("{\"name\":\"" + getRandomName() + "\",\"gender\":\"male\", \"email\":\"" + getRandomMail() + "\", \"status\":\"active\"}")
-
                         .log().uri()
+
+
+
                         .when()
                         .post("")
 
@@ -172,7 +174,8 @@ public class GoRestUsersTest {
 
     @Test(dependsOnMethods = "createUserObjectWithObject", priority = 2)
     public void updateUserObject() {
-        // newUser.setName("ismet temur");
+
+        //newUser.setName("ismet temur");
 
         Map<String, String> updateUser = new HashMap<>();
         updateUser.put("name", "ismet temur");
@@ -263,7 +266,7 @@ public class GoRestUsersTest {
 
     }
 
-    @Test (enabled = false)
+    @Test
     public void getUsersV1() {
         Response body =
                 given()
@@ -310,6 +313,14 @@ public class GoRestUsersTest {
         private String email;
         private String status;
 
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
         public String getName() {
             return name;
         }
@@ -342,12 +353,6 @@ public class GoRestUsersTest {
             this.status = status;
         }
 
-        public int getId() {
-            return id;
-        }
-        public void setId(int id) {
-            this.id = id;
-        }
         @Override
         public String toString() {
             return "User{" +
@@ -358,7 +363,8 @@ public class GoRestUsersTest {
                     ", status='" + status + '\'' +
                     '}';
         }
-        }
+    }
+
 
 
 

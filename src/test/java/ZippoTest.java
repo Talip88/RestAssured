@@ -228,7 +228,7 @@ public class ZippoTest {
                     .param("page",1)  // linke ?page=1 olarak eklenir...
                     .log().uri()
                     .when()
-                    .get(" https://gorest.co.in/public/v1/users")
+                    .get("https://gorest.co.in/public/v1/users")
                     .then()
                     .log().body()
                     .statusCode(200)
@@ -328,8 +328,11 @@ public class ZippoTest {
     public void extractingJsonPathInt()
 
 
-    {   int limit=
-        given()
+    {
+
+        int limit=
+
+                given()
 
                 .when()
                 .get("https://gorest.co.in/public/v1/users")
@@ -366,7 +369,7 @@ public class ZippoTest {
 
         System.out.println("idler="+idler);
 
-        Assert.assertTrue(idler.contains(4235));
+        Assert.assertTrue(idler.contains(3564));
 
     }
 
@@ -390,7 +393,7 @@ public class ZippoTest {
 
         System.out.println("idler="+names);
 
-        Assert.assertTrue(names.contains("Gautam Ahluwalia"));
+        Assert.assertTrue(names.contains("Kanak Dubashi"));
 
     }
 
@@ -412,6 +415,7 @@ public class ZippoTest {
 
                         .extract().response();
 
+
        List<Integer> idler=response.path("data.id");
        List<String> isimler=response.path("data.name");
        int limit=response.path("meta.pagination.limit");
@@ -421,8 +425,8 @@ public class ZippoTest {
         System.out.println("limit="+limit);
 
 
-        Assert.assertTrue(isimler.contains("Gautam Ahluwalia"));
-        Assert.assertTrue(idler.contains(4235));
+        Assert.assertTrue(isimler.contains("Kanak Dubashi"));
+        Assert.assertTrue(idler.contains(3564));
         Assert.assertEquals(limit,10,"test sonucu");
 
     }
@@ -442,6 +446,7 @@ public class ZippoTest {
                 .when()
                 .get("http://api.zippopotam.us/us/90210")
                 .then()
+                .log().body()
                 .extract().as(Location.class)// Location şablonuna göre
 
         ;
